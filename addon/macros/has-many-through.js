@@ -51,10 +51,8 @@ export default function (...args) {
           children.forEach((child) => {
             // add observer for when a childOfChild is added / destroyed
             if (isBelongsTo) {
-              child.removeObserver(`${childOfChildKey}.isDeleted`, self, observerFunction);
               child.addObserver(`${childOfChildKey}.isDeleted`, self, observerFunction);
             } else {
-              child.removeObserver(`${childOfChildKey}.@each.isDeleted`, self, observerFunction);
               child.addObserver(`${childOfChildKey}.@each.isDeleted`, self, observerFunction);
             }
           });
